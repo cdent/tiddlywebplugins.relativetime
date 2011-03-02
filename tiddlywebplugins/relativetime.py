@@ -1,4 +1,22 @@
+"""
+Relative time select filters for tiddlyweb. 
 
+Where a filter is:
+
+    select=modifier:>2011
+
+once could expect either a tiddlywiki timestamp string, a fragment
+thereof, or some numbers that end with 'd', 's', 'm', 'h', 'y' (case
+insensitive) meaning Days, Seconds, Minutes, Hours, Years. We don't
+worry about months. If the trailing letter is there, we translate it
+into an absolute time in the past, relative to now.
+
+This makes it possible select things like "everything modified in the
+last day".
+
+Install by adding 'tiddlywebplugins.relativetime' to system_plugins
+in tiddlywebconfig.py.
+"""
 from datetime import datetime, timedelta
 
 from tiddlyweb.filters import FilterError
@@ -48,13 +66,4 @@ def _parse_relative_time(datestring):
 
 # reset ATTRIBUTE_SORT_KEY to local func
 ATTRIBUTE_SORT_KEY.update({'modified': parse_date, 'created': parse_date})
-
-if __name__ == '__main__':
-    print parse_date('2009')
-    print parse_date('1d')
-    print parse_date('1h')
-    print parse_date('1m')
-    print parse_date('1s')
-    print parse_date('1y')
-    print parse_date('1x')
 
