@@ -1,0 +1,18 @@
+Extension to tiddlyweb select filters to use relative time statements.
+
+Where a filter is:
+
+    select=modifier:>2011
+
+once could expect either a tiddlywiki timestamp string, a fragment
+thereof, or some numbers that end with 'd', 's', 'm', 'h', 'y' (case
+insensitive) meaning Days, Seconds, Minutes, Hours, Years. We don't
+worry about months. If the trailing letter is there, we translate it
+into an absolute time in the past, relative to now.
+
+This makes it possible select things like "everything modified in the
+last day".
+
+Copyright 2011, Chris Dent <cdent@peermore.com>
+
+BSD License
