@@ -10,8 +10,15 @@ insensitive) meaning Days, Seconds, Minutes, Hours, Years. We don't
 worry about months. If the trailing letter is there, we translate it
 into an absolute time in the past, relative to now.
 
-This makes it possible select things like "everything modified in the
-last day".
+It's important to note that the translation happens _before_ the > or
+< is interpreted. So while
+
+    select=modified:>1d
+
+at first glance reads as "select those entities with a modified more
+than one day ago" it is actually, if we say today is 20110302, "select
+those entities with a modified greater than 20110302" (i.e. those thing
+modified within the last day).
 
 Copyright 2011, Chris Dent <cdent@peermore.com>
 
