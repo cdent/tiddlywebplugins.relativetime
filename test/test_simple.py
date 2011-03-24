@@ -17,6 +17,7 @@ def test_parse_date():
     assert parse_date('1s')[0:12] == nowstring[0:12]
     assert int(parse_date('1y')[0:4]) == int(nowstring[0:4]) - 1
     assert py.test.raises(FilterError, "parse_date('1x')")
+    assert py.test.raises(FilterError, "parse_date('0.2s')")
 
 def test_select():
     # cook some known modified strings in the past

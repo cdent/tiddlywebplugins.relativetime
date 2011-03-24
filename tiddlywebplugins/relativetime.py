@@ -40,10 +40,13 @@ def parse_date(datestring):
     translate it into an absolute time in the past, relative
     to now.
     """
-    end = datestring[-1].lower()
-    if not end.isdigit():
-        datestring = _parse_relative_time(datestring)
-    return date_to_canonical(datestring)
+    try:
+        end = datestring[-1].lower()
+        if not end.isdigit():
+            datestring = _parse_relative_time(datestring)
+        return date_to_canonical(datestring)
+    except ValueError, exc:
+        raise FilterError('unable to handle datestring: %s' % datestring)
 
 
 def _parse_relative_time(datestring):
@@ -70,4 +73,3 @@ def _parse_relative_time(datestring):
 
 # reset ATTRIBUTE_SORT_KEY to local func
 ATTRIBUTE_SORT_KEY.update({'modified': parse_date, 'created': parse_date})
-
