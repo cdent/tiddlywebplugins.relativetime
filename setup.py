@@ -2,7 +2,7 @@ AUTHOR = 'Chris Dent'
 AUTHOR_EMAIL = 'cdent@peermore.com'
 NAME = 'tiddlywebplugins.relativetime'
 DESCRIPTION = 'Use relative time expressions in select filters'
-VERSION = '0.3'
+VERSION = '0.4'
 
 
 import os
