@@ -1,5 +1,5 @@
 """
-Relative time select filters for tiddlyweb. 
+Relative time select filters for tiddlyweb.
 
 Where a filter is:
 
@@ -26,7 +26,9 @@ from datetime import datetime, timedelta
 from tiddlyweb.filters import FilterError
 from tiddlyweb.filters.sort import ATTRIBUTE_SORT_KEY, date_to_canonical
 
+
 def init(config):
+    """We don't need to do anything other compile the code."""
     pass
 
 

@@ -22,5 +22,6 @@ setup(
     platforms = 'Posix; MacOS X; Windows',
     packages = find_packages(exclude=['test']),
     install_requires = ['setuptools', 'tiddlyweb'],
-    zip_safe = False
+    zip_safe = False,
+    license = 'BSD'
     )
